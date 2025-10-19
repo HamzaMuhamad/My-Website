@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+
+
+
+@utility nav-active{
+    color: var(--color-brand)
+}
+
+@utility active{
+    opacity: 1 !important;
+}
+
+@utility show{
+    display: block !important;
+    animation: fade .5s 
+}
+
+@theme {
+    --breakpoint-xl: 75rem;
+    --breakpoint-mdd:50rem;
+    --breakpoint-xss: 32.813rem;
+
+    --color-dark-one: #222831;
+    --color-dark-one-opacity: #010D1E3D;
+    --color-dark-two: #393E46;
+    --color-brand: #9768FF;
+
+    --color-html-color: #161699ba;
+    --color-css-color: #ff4848d4;
+
+    --color-btn-before: gray;
+
+    --font-Comfortaa: "Comfortaa";
+    --font-JetBrainsMono: "JetBrainsMono";
+
+    --animate-bounce-modif: bounce-modif .5s ease-out infinite alternate;
+}
+
+@keyframes bounce-modif {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-40%);
+    }
+}
+
+@layer base {
+    h1 {
+        @apply text-4xl font-bold relative w-fit mt-15 mb-10 max-xl:mt-3;
+
+    }
+
+    h1::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -16px;
+        width: 40px;
+        height:  5px;
+        background-color: var(--color-brand);
+        border-radius: .2rem;
+    }
+}
+
+
+/* --- RULES --- */
+/* ------------- */
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* == Show details Btn == */
+
+button[data-show_details]::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 1px;
+    left: 1px;
+    position: absolute;
+    border-radius: 8px;
+    background-color: #333537ba;
+    
+    
+}
+
+
+
+div[data-side-bar-info] {
+    width: 48px;
+    height: 48px;
+    border-radius: 1rem;
+    position: relative;
+    background-image: linear-gradient(to bottom right,var(--color-brand) 0%, rgba(218, 218, 218, 0.05) 40%);
+
+}
+
+/* ul[data-side-bar-info] li i {
+    z-index: 100;
+} */
+
+div[data-side-bar-info]::before {
+    content: "";
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    background-color: var(--color-dark-two);
+    border-radius: inherit;
+    inset: 1px;
+
+}
+
+div[data-side-bar-info] i {
+    z-index: 100;
+}
+
+
+div[data-send] button:hover:not(:disabled) {
+    @apply from-brand
+}
+
+div[data-send] button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 2px;
+    left: 2px;
+    position: absolute ;
+    border-radius: 8px;
+    background-color: var(--color-btn-before);
+    border-radius: 1rem;
+    z-index: 10;
+    opacity: .8;
+
+
+}
+
+
+@keyframes fade {
+    from{
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@font-face {
+    font-family: "Comfortaa";
+    font-style: normal;
+    font-weight:400;
+    font-display: swap;
+    src: url("../fonts/comfortaa-latin-400-normal.woff2") format("woff2");
+}
+
+
+
+@font-face {
+    font-family: "Comfortaa";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/comfortaa-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "JetBrainsMono";
+    font-style: normal;
+    font-weight:400;
+    font-display: swap;
+    src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+
+
+@font-face {
+    font-family: "JetBrainsMono";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}
+
+
